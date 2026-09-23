@@ -1,0 +1,796 @@
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;     
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;       
+    gap: 25px;           
+}
+
+.nav-links li a {
+    color: #ffffff;     
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #3498db;      
+}
+.nav-logo {
+    width: 50px;        
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff; 
+}
+
+/* ================= CATEGORIES SECTION ================= */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background: #fff;
+}
+
+.category-box {
+    text-decoration: none;
+    background-color: #f1f1f1;
+    color: #2c3e50;
+    padding: 12px 20px;
+    border-radius: 30px; /* Pill shape */
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.category-box:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ================= BOOK GRID (Fixed Heights) ================= */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-card img {
+    width: 100%;
+    height: 320px;       /* Fixed height for all images */
+    object-fit: contain; /* Keeps the full cover visible without distortion */
+    background-color: #fdfdfd;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.book-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    height: 50px;       /* Ensures text doesn't push buttons out of alignment */
+    overflow: hidden;
+}
+
+.price {
+    color: #e74c3c;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: auto; /* Pushes button to the bottom of the card */
+    transition: background 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #3498db;
+}
+
+/* ================= HERO & FOOTER ================= */
+
+footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+/* ================= SEARCH BAR FIX ================= */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-section input {
+    width: 400px; /* Increased size for normal view */
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+}
+.search-section button {
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.search-section button:hover {
+    background-color: #2980b9;
+}
+@media (max-width: 600px) {
+    .book-grid {
+        padding: 15px;
+        gap: 15px;
+    }
+    nav {
+        padding: 10px 20px;
+    }
+}
+/* ================= HERO SECTION ================= */
+/* ================= HERO BANNER FIX ================= */
+.hero {
+    height: 400px; /* Makes the banner smaller and more understandable */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+}
+
+
+/* ================= CATEGORY BUTTONS FIX ================= */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Prevents them from shrinking on mobile */
+}
+
+.category-box {
+    text-decoration: none;
+    background-color: white; /* Make them stand out against the dark hero */
+    color: #2c3e50;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: inline-block;
+    min-width: 120px; /* Ensures they maintain size */
+}
+
+.category-box:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-3px);
+}
+/* ================= BEST SELLERS SECTION ================= */
+.best-sellers {
+    padding: 40px 20px;
+    background-color: #f1f4f6; /* Slightly different background to make it pop */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Badge for Best Selling Books */
+.book-card.featured {
+    position: relative;
+    border: 2px solid #f1c40f; /* Gold border for best sellers */
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f1c40f;
+    color: #2c3e50;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+/* Ensure images fit the featured cards perfectly */
+.book-card.featured img {
+    height: 280px; 
+    object-fit: contain;
+}
+/* ================= WINTER SALE ================= */
+.winter-sale-container {
+    background: linear-gradient(135deg, #1e3799, #2250c5); /* Deep winter blue */
+    padding: 60px 20px;
+    color: white;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.sale-text h2 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.discount-badge {
+    background-color: #e74c3c;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.discount-badge span {
+    font-size: 2.2rem;
+    color: #f1c40f;
+}
+
+/* Horizontal row for the 5 pictures */
+.sale-images-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.sale-images-row img {
+    width: 140px;      /* Fixed width for the 5-image row */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.sale-images-row img:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #f1c40f;
+}
+
+.btn-shop-sale {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 40px;
+    background: white;
+    color: #0c2461;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-shop-sale:hover {
+    background: #f1c40f;
+}
+/* ================= GLOBAL NAVBAR FIX ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50; /* Dark Navy */
+    padding: 15px 50px;
+    position: sticky;  
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff !important; /* Forces White Heading */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Fixes Vertical Stacking */
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #ffffff !important; /* Fixes Purple Text */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* ================= CART PAGE FIXES ================= */
+.cart-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.cart-wrapper {
+    display: flex; /* Keeps Summary on the Right */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.cart-items {
+    flex: 2;
+}
+
+.cart-summary {
+    flex: 1;
+    background: #2c3e50; /* Navy box */
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.cart-product img {
+    width: 80px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ================= LOGIN PAGE ================= */
+.login-page {
+    background-color: #f1f4f6;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Centers the box vertically */
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #2980b9;
+}
+/* ================= CONTACT PAGE ================= */
+.contact-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-size: 36px;
+    color: #2c3e50; /* Navy theme */
+}
+
+.contact-wrapper {
+    display: flex; /* Creates the two-column layout */
+    gap: 50px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-info {
+    flex: 1;
+    background: #2c3e50; /* Consistent navy background */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.info-item {
+    margin-bottom: 30px;
+}
+
+.info-item h3 {
+    margin-bottom: 10px;
+    color: #3498db; /* Blue accent */
+}
+
+.contact-form {
+    flex: 2;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.btn-send {
+    width: 100%;
+    padding: 15px;
+    background-color: #3498db; /* Match existing button styles */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+}
+.nav-links {
+    list-style: none;
+    display: flex;       /* This fixes the vertical stacking error */
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #ffffff !important; /* This fixes the purple text error */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.logo {
+    display: flex;       /* This aligns the book emoji and logo image */
+    align-items: center;
+    gap: 12px;
+}
+.book-desc {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    height: 60px; /* Forces equal height for descriptions */
+    overflow: hidden;
+}
+.book-card img {
+    width: 100%;
+    height: 320px;       /* Keeps images uniform */
+    object-fit: contain; /* Prevents stretching */
+    margin-bottom: 15px;
+}
+.book-card img {
+    width: 100%;
+    height: 320px;       /* Keeps book covers the same size */
+    object-fit: contain; /* Prevents image distortion */
+    margin-bottom: 15px;
+}
+
+.book-desc {
+    font-size: 14px;
+    color: #7f8c8d;
+    height: 50px;        /* Keeps cards aligned even with different text lengths */
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+/* ================= FINAL MOBILE RESPONSIVE FIX ================= */
+@media screen and (max-width: 768px) {
+
+    /* NAVBAR */
+    nav {
+        flex-direction: column;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        display: flex !important; /* override hidden states */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+    }
+
+    /* HERO */
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* SEARCH BAR */
+    .search-section {
+        padding: 0 15px;
+    }
+
+    .search-section input {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* CATEGORIES */
+    .categories {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .category-box {
+        font-size: 13px;
+        padding: 10px 18px;
+        min-width: auto;
+    }
+
+    /* BOOK GRID */
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .book-card img {
+        height: 240px;
+    }
+
+    .book-card h3 {
+        font-size: 15px;
+        height: auto;
+    }
+
+    /* BEST SELLERS */
+    .best-sellers {
+        padding: 30px 15px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    /* WINTER SALE */
+    .sale-text h2 {
+        font-size: 2rem;
+    }
+
+    .discount-badge {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+    }
+
+    .discount-badge span {
+        font-size: 1.6rem;
+    }
+
+    .sale-images-row {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+    }
+
+    .sale-images-row img {
+        width: 120px;
+        height: 170px;
+        flex-shrink: 0;
+    }
+
+    /* CART PAGE */
+    .cart-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* CONTACT PAGE */
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .contact-info {
+        padding: 25px;
+    }
+}
+
+/* EXTRA SMALL DEVICES */
+@media screen and (max-width: 480px) {
+
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .nav-links li a {
+        font-size: 15px;
+    }
+}
+.logout-link {
+    color: #e74c3c !important; /* A red color to indicate logout */
+    font-weight: bold;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Validation</title>
+</head>
+
+<body>
+
+    <h2>URL Validation</h2>
+
+    <p id="output"></p>
+
+    <script>
+        function validateURL(url) {
+            if (url.startsWith("http://") || url.startsWith("https://")) {
+                return "Safe URL";
+            } else {
+                return "Invalid URL";
+            }
+        }
+
+        let userURL = "javascript:alert(1)";
+
+        document.getElementById("output").textContent = validateURL(userURL);
+    </script>
+
+</body>
+</html>

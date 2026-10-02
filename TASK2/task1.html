@@ -1,0 +1,26 @@
+<!DOCTYPEDOCTYPE html>
+<html>
+<head>
+    <title>Escape HTML</title>
+</head>
+
+<body>
+
+    <h2>Escaped Output</h2>
+
+    <p id="output"></p>
+
+    <script>
+        function escapeHTML(input) {
+            return input
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        let userInput = "<b>Hello</b>";
+
+        document.getElementById("output").innerHTML = escapeHTML(userInput);
+    </script>
+
+</body>
+</html>
